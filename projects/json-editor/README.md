@@ -4,11 +4,6 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 This library is a simple wrap of the library  (https://www.npmjs.com/package/svelte-jsoneditor)
 You can tested online at (https://jsoneditoronline.org/)
 
-## Code scaffolding
-
-Run `ng generate component component-name --project jsonEditor` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project jsonEditor`.
-> Note: Don't forget to add `--project jsonEditor` or else it will be added to the default project in your `angular.json` file. 
-
 ## How to
 
 On your app module import:
@@ -57,6 +52,11 @@ On your component
     }
 
 You can handle othe event like changeText, but be ware to handle the JSON.
+
+## Code scaffolding
+
+Run `ng generate component component-name --project jsonEditor` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project jsonEditor`.
+> Note: Don't forget to add `--project jsonEditor` or else it will be added to the default project in your `angular.json` file. 
 
 ## Build
 
