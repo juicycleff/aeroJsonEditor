@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { JsonEditorModule } from 'jsonEditor';
 
 import { AppComponent } from './app.component';
+import {JsonEditorModule} from "../../projects/json-editor/src/lib/json-editor.module";
 
 @NgModule({
   declarations: [

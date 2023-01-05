@@ -8,7 +8,7 @@ You can tested online at (https://jsoneditoronline.org/)
 
 On your app module import:
 
-    import { JsonEditorModule } from 'aerosv-json-editor';
+    import { JsonEditorModule } from 'ng-svelt-json-editor';
     ...
      imports: [
         ....

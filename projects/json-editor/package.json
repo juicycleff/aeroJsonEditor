@@ -1,8 +1,8 @@
 {
-  "name": "aerosv-json-editor",
-  "version": "0.0.7",
+  "name": "ng-svelt-json-editor",
+  "version": "0.1.0",
   "license": "MIT",
-  "repository": "https://github.com/aeromeme/aeroJsonEditor.git",
+  "repository": "https://github.com/juicycleff/aeroJsonEditor.git",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0",
