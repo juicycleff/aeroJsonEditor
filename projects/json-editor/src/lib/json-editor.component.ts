@@ -1,5 +1,9 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Content, JSONContent, JSONEditor, JSONValue, OnChangeStatus, TextContent } from "vanilla-jsoneditor";
+import { Content, JSONContent, JSONEditor, TextContent, JSONEditorPropsOptional } from "vanilla-jsoneditor";
+
+export {
+  JSONEditorPropsOptional as JsonEditorOptions
+}
 
 @Component({
   selector: 'aero-jsonEditor',
@@ -12,6 +16,7 @@ import { Content, JSONContent, JSONEditor, JSONValue, OnChangeStatus, TextConten
 export class JsonEditorComponent implements OnInit {
   private editorRef: JSONEditor;
   private _jsonData: Content
+
   @Input('jsonData')
   set jsonData(value: Content) {
     this._jsonData = value;
@@ -19,8 +24,13 @@ export class JsonEditorComponent implements OnInit {
       this.editorRef.destroy();
       this.ngOnInit();
     }
-  }; 
-  @Input() readOnly: boolean=false; 
+  };
+
+  @Input() readOnly: boolean=false;
+
+  @Input() options: JSONEditorPropsOptional = {};
+
+
   @Input() debug = false;
   @Output() changeContent:EventEmitter<Content> = new EventEmitter<Content>();
   @Output() changeText:EventEmitter<Content> = new EventEmitter<Content>();
@@ -32,8 +42,13 @@ export class JsonEditorComponent implements OnInit {
   ngAfterViewInit():void{
     this.editorRef= new JSONEditor({
       target: this.editor.nativeElement,
-      props: {content:this._jsonData,readOnly:this.readOnly,onChange:(e)=>this.emitChange(e,this)}
-    }); 
+      props: {
+        content: this._jsonData,
+        readOnly: this.readOnly,
+        onChange:(e)=> this.emitChange(e,this),
+        ...this.options,
+      }
+    });
   }
   emitChange(d:any, x:any){
     try {
@@ -55,14 +70,14 @@ export class JsonEditorComponent implements OnInit {
           console.log(h.text);
         }
         x.changeText.emit(h.text)
-      }      
+      }
 
     }catch (e) {
       if (this.debug) {
         console.log(e);
       }
     }
-    
+
   }
 
   public expandAll() {
@@ -86,7 +101,7 @@ export class JsonEditorComponent implements OnInit {
           console.log(h.text);
         }
         returnText=h.text;
-      }      
+      }
     return returnText;
   }
   ngOnDestroy() {
